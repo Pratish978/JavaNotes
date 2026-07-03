@@ -1,0 +1,289 @@
+1.Your First Java Program
+
+public class HelloWorld {
+
+    public static void main(String[] args) {
+
+        System.out.println("Hello World");
+
+    }
+
+}
+
+Meaning of every line:-
+
+line 1:- public class HelloWorld 
+
+-public
+ The class can be accessed from anywhere.
+
+-class
+ A class is a blueprint for creating objects.
+
+-HelloWorld
+ This is the class name
+
+Important: The file name and class name must be the same.
+
+Line 3:-public static void main(String[] args)
+
+-public
+ The JVM (Java Virtual Machine) can access it.
+
+-Static
+ Java can run it without creating an object.
+
+-void
+ The method does not return anything.
+
+-main
+ A special method name recognized by Java.
+
+-String[] args
+ Stores command-line arguments.
+
+Line 4:-System.out.println("Hello World");
+
+-System
+ A built-in Java class.
+
+-out
+ Represents the standard output stream (screen).
+
+-println
+ Prints the text and moves to the next line.
+
+**************************************************************************
+2.Variables :- 
+  A variable is a container that stores data.
+
+ -Example:- int age=22;
+  Here int is Data type age is variable name and 22 is value Stored in Variable.
+
+ -Data Types:-
+
+  a.int:-Stores whole numbers.
+    int age = 22;
+
+    -Examples:
+     int marks = 95;
+     int salary = 25000;
+
+  b.double:-Stores decimal numbers.
+    double height = 1.85;
+
+  -Examples:
+   double price = 99.99;
+   double percentage = 98.75;
+
+  c.char:-Stores a single character.
+    char grade = 'A';
+    Use single quotes (' ').
+
+  -Examples:
+   char gender = 'M';
+   char section = 'B';
+
+  d.boolean:- Stores true or false.
+    boolean passed = true;
+
+  -Example 
+   boolean isLoggedIn = false;
+   boolean isJavaFun = true;
+
+  e.String:- Stores text
+    String name="Shraddha";
+
+  -Example:-
+   String city = "Mumbai";
+   String company = "Microsoft"; 
+ 
+
+ **************************************************************************
+
+3.Operators:-
+  Operators perform operations on values.
+
+  a.Addition(+)
+    int a = 10;
+    int b = 5;
+    System.out.println(a + b);//15
+
+  b.Subtraction (-)
+    int a = 10;
+    int b = 5;
+    System.out.println(a - b);//5
+
+  c.Multiplication (*)
+    int a = 10;
+    int b = 5;
+    System.out.println(a * b);//50
+
+  d.Division (/)
+    int a = 10;
+    int b = 5;
+    System.out.println(a / b);//2
+
+  e.Modulus (%) :-Returns the remainder.
+    int a = 10;
+    int b = 5;
+    System.out.println(a % b);//0
+
+**************************************************************************
+
+4. Increment and Decrement Operators
+
+  a.Increment(++):-Adds 1 to a variable.
+    int x = 5;
+    x++;
+    
+    System.out.println(x);//5
+
+  b.Decrement(++):-Subtract 1 to a variable.
+    int x = 5;
+    x--;
+  
+    System.out.println(x);//4
+
+**************************************************************************
+
+5.Assignment Operators:- 
+
+  a.= :- Assigns a value.
+
+  -Example:-
+   int x=10;
+
+  b.+=
+    int x=10;
+    x+=5;
+    Equivalent to :- x=x+5
+
+  a.-= 
+    int x-=5;
+    Equivalent to :- x=x-5
+
+  b.*=
+    int x=10;
+    x*=5;
+    Equivalent to :- x=x*5
+
+**************************************************************************
+
+6.Comparison Operators:-
+  These operators always return a boolean (true or false).
+  
+  -Example:-
+   int a = 10;
+   int b = 5;
+
+  a.Equal To (==);
+    Meaning:-Is 10 equal to 5?
+    System.out.println(a == b);//false
+  
+  b.Equal To (!=);
+    Meaning:-Is 10 equal to 5?
+    System.out.println(a != b);//true
+
+  c.Greater Than (>)
+    System.out.println(a > b);//true
+
+  d.Less Than (<)
+    System.out.println(a < b);//false
+
+  e.Greater Than or Equal To (>=)
+    System.out.println(a >= b);/true
+
+  f.Less Than or Equal To (<=)
+    Less Than or Equal To (<=)//false
+
+**************************************************************************
+
+7.Logical Operators:-
+ These are used to combine multiple conditions.
+
+  1.&& (AND):-
+    Returns true only if both conditions are true.
+
+    Value 1    Value 2    result
+      T          T          T
+      T          F          F 
+      F          T          F 
+      F          F          F
+
+   -Example:-
+    int age = 22;
+    System.out.println(age > 18 && age < 60);//true
+
+  2.|| (OR) :-
+     Returns true if at least one condition is true
+
+     Value 1    Value 2    result
+      T          T          T
+      T          F          F 
+      F          T          F 
+      F          F          F
+
+    -Example:-
+     int age = 22;
+     System.out.println(age < 18 || age > 20);//true
+
+  3.NOT (!):-
+    Reverses the result.
+
+      Value 1    result
+      T            F
+      F            T 
+
+    -Example:-
+     boolean passed = true;
+     System.out.println(!passed);//false
+
+**************************************************************************
+
+8.If-Else Statements
+  Now Java starts becoming useful.
+  An if statement allows the program to make decisions.
+
+   a.if statement
+    -Example:-
+     int age= 20;
+     
+     if(age>=18){
+      System.out.println("Adult")
+     }
+   //Adult
+   
+   b.if-else statement
+    -Example:-
+     int age= 100;
+     
+     if(age>=18){
+      System.out.println("Adult")
+     }else{
+      System.out.println("Minor");
+    }
+   //Minor
+
+   c.else-if statement:-
+
+    int marks = 85;
+        
+    if(marks >= 90){
+      System.out.println("A");
+    }
+    else if(marks >= 80){
+      System.out.println("B");
+    }
+    else if(marks >= 70){
+      System.out.println("C");
+    }else{
+      System.out.println("Fail");
+    }
+
+    //Java stops checking after finding the first true condition.
+
+
+
+
+  

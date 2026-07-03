@@ -1,0 +1,34 @@
+1.What is OOP?
+  OOP = Object Oriented Programming
+  
+  It is a way of writing programs using:
+  Classes
+  Objects
+  
+  Instead of writing everything in one file, we create objects that represent real-world things.
+
+  Real Life Example
+  Think about a Car.
+  A car has:
+  
+  Properties:
+  Color
+  Brand
+  Speed
+  
+  Actions:
+  Start()
+  Stop()
+  Accelerate()
+
+
+In Java:
+
+class Car {
+    String color;
+    String brand;
+
+    void start() {
+        System.out.println("Car Started");
+    }
+}
