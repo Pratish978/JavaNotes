@@ -1,0 +1,249 @@
+1.What is a Class?
+  A Class is a blueprint/template.
+   
+  -Example:-
+   Class = Employee Blueprint
+   
+   Name
+   Salary
+   Department
+
+   The blueprint itself is not an employee.
+   It only describes what an employee should have.
+
+  -Real Life Example
+   Class = Car
+
+   Properties:
+   Brand
+   Color
+   Price
+   
+   Using this blueprint we can create:
+   Car 1 = BMW
+   Car 2 = Audi
+   Car 3 = Mercedes
+
+  -Java Example
+   class Employee{
+       String name;
+       int salary;
+   }
+
+  -Meaning
+   class Employee:-
+                   Creates a blueprint called Employee.
+   String name:-
+                 Every employee will have a name.
+   int salary:-
+                Every employee will have a salary.
+
+***********************************************************************************************************************************************************
+
+2.What is an Object:-
+  An Object is a real instance of a class.
+
+  -Blueprint:
+    class Employee{
+       String name;
+       int salary;
+    }
+  
+  -Object:
+   Employee e1 = new Employee();
+
+   Meaning:
+           Employee
+           Data type (class name).
+
+           e1
+           Object reference variable.
+
+           new Employee()
+           Creates a new Employee object in memory.
+
+    Full Example:-
+     class employee{
+        String name;
+        int salary;
+     }
+     
+     public class Main{
+        public static void main(String[] args){
+
+            Employee e1=new Employee();
+
+            e1.name="Pratish";
+            e1.salary=25000;
+
+            System.out.println(e1.name);
+            System.out.println(e1.salary);
+        }
+     }
+
+     Output:-
+             Pratish
+             25000
+    
+    -Memory Visualization
+     Before:- 
+     Employee e1 = new Employee();
+
+     Memory:-
+        name=null
+        salary=0
+
+     After:-
+      e1.name="Pratish";
+      e1.salary=25000;
+
+     Memory:-
+       name="Pratish";
+       salary=25000;
+
+   -Difference Between Class and Object
+
+    Class:A blueprint/template used to create objects.
+
+    Object:A real instance of a class.
+
+   -Creating Multiple Objects
+
+   class Student{
+      String name;
+      int marks;
+   }
+
+   public class Main{
+      public static void main(String[] args){
+
+         Student s1=new Student();
+         Student s2=new Student();
+
+         s1.name="Pratish";
+         s1.marks=90;
+
+         s2.name="Riya";
+         s2.marks=80;
+
+         System.out.println(s1.name);
+         System.out.println(s2.name);
+      }
+    }
+    
+    Output:- Pratish 
+             Riya
+   
+***********************************************************************************************************************************************************
+
+3.Object Methods
+  Until now, objects only stored data:
+
+   class Student{
+     String name;
+     int marks;
+   }
+
+   A Student can also do something.
+   class Student{
+     String name;
+     int marks;
+
+     void display(){
+      System.out.println(name);
+      System.out.println(marks);
+     }
+   }
+
+   -Meaning of display()
+    
+    void display()
+
+    This is a method inside the class.
+    When called, it prints the student's details.
+
+   -Full Example:- 
+   class Student{
+     String name;
+     int marks;
+
+     void Display(){
+      System.out.println(name);
+      System.out.println(marks);
+     }
+
+      public class Main{
+      public static void main(String[] args){
+
+         Student s1=new Student();
+         Student s2=new Student();
+
+         s1.name="Pratish";
+         s1.marks=90;
+
+         s1.display()
+      }   
+   }
+   }
+
+   Output:-
+           Pratish
+           95
+
+   How Java Executes This
+
+   Step 1:-
+           Student s1 = new Student();
+           Creates object.
+   
+   step 2:-
+           s1.name = "Pratish";
+           s1.marks = 95;
+           Stores values.
+
+   Step 3:-
+           s1.display();
+           Java jumps to:
+                      void Display(){
+                        System.out.println(name);
+                        System.out.println(marks);
+                      }
+                      
+   Step 4:-
+          Inside the object:    
+                   name=Pratish
+                   marks=95
+
+***********************************************************************************************************************************************************
+
+4.Constructors
+  A constructor is a special method that runs automatically when an object is created.
+
+  -Example
+
+  class Student{
+
+    Student(){
+        System.out.println("Object Created");
+      }
+
+   }
+   
+   -Rules of constructor
+    Rule 1:-
+    Constructor name must be same as class name.
+    Constructor name = Class name.
+      class Student{
+
+         Student(){
+        }
+
+      }
+
+    Rule 2:-
+    Constructor has no return type.
+     Student(){
+
+     }
+
+    

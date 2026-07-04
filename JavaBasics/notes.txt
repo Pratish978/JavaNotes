@@ -857,6 +857,196 @@ Line 4:-System.out.println("Hello World");
 *************************************************************************************************************************************************************************
 
 17.String:-
-   
+   A String is used to store text.
 
+   String name = "Pratish";
+
+   String → Data Type
+   name → Variable Name
+   "Pratish" → Value
+
+  1.Creating Strings
+   -Method 1 :- (Most Common)
+    String name = "Pratish";
+    System.out.println(name);
+
+   -Method 2:-
+    String city = new String("Mumbai");
+    System.out.println(city);
+ 
+  2.String Concatenation (+)
+    Joining Strings together.
    
+    String firstName = "Pratish";
+    String lastName = "Bhongle";
+    System.out.println(firstName + " " + lastName);
+
+    Output:
+    Pratish Bhongle
+
+   3.String + Variable
+
+    String name = "Pratish";
+    int age = 21;
+    System.out.println(name + " is " + age + " years old");
+
+    Output
+    Pratish is 21 years old
+   
+  4.length()
+    Returns the number of characters.
+
+    String name = "Java";
+    System.out.println(name.length());
+
+    Output:-
+             4
+
+  5.charAt()
+    Returns a character at a specific index.
+
+    String name = "Java";
+    System.out.println(name.charAt(0));
+    System.out.println(name.charAt(1));
+
+    Output:-
+    j
+    a
+
+  6.toUpperCase()
+    Converts all letters to uppercase.
+
+    String name = "java";
+    System.out.println(name.toUpperCase());
+
+    Output:-
+    JAVA
+
+  6.toLowerCase()
+    Converts all letters to lowercase.
+
+    String name = "JAVA";
+    System.out.println(name.toUpperCase());
+
+    Output:-
+    java
+
+  7.equals()
+    Checks if two Strings are exactly equal.
+
+    String a = "Java";
+    String b = "Java";
+    
+    System.out.println(a.equals(b));//true 
+    
+    Example 2:
+    String a = "Java";
+    String b = "java";
+    
+    System.out.println(a.equals(b));//false
+
+  8.equalsIgnoreCase()
+    Ignores uppercase/lowercase differences.
+
+    String a = "Java";
+    String b = "java";
+    
+    System.out.println(a.equalsIgnoreCase(b));//true
+
+  9.contains()
+    Checks whether a String contains another String.
+
+    String text = "I Love Java";
+    System.out.println(text.contains("Java"));//true
+    System.out.println(text.contains("Python"));//false
+
+  10.substring()
+     Extracts part of a String.
+
+     String name = "Pratish";
+     System.out.println(name.substring(0,3));
+
+     Output:-
+     Pra
+
+     Memory:-
+     Index: 0 1 2 3 4 5 6
+     Value: P r a t i s h
+
+     Java takes:
+     Start = 0
+     End = 3 (excluded)
+
+     so:-
+     0 1 2
+     P r a
+
+  11.replace()
+     Replaces characters or words.
+
+     String name = "Java";
+     System.out.println(name.replace("J","K"));
+
+     Output:-
+     kava
+
+  12.trim()
+     Removes spaces from beginning and end.
+
+     String name = "   Java   ";
+     System.out.println(name.trim());
+
+     Output:-
+     Java
+
+  13.Taking String Input
+     Import Scanner:
+     import java.util.Scanner;
+
+     Example:
+     Scanner sc = new Scanner(System.in);
+     String name = sc.nextLine();
+     System.out.println(name);
+
+     Input:
+     Pratish 
+
+     Output:-
+     Pratish
+
+  14.next() vs nextLine()
+
+     next()
+     Reads only one word.
+     String name = sc.next();
+
+     Input 
+     Pratish Bhongle
+
+     Output
+     Pratish
+
+     nextLine()
+     Reads the entire line.
+     String name = sc.nextLine();
+
+     Input 
+     Pratish Bhongle
+
+     Output
+     Pratish Bhongle
+
+  15.String Comparison
+
+     String a = "Java";
+     String b = "Java";
+     
+     System.out.println(a.equals(b));//true
+
+    Always use:
+    equals()
+    for String comparison.
+    
+    Avoid:
+    ==
+    for beginners.
