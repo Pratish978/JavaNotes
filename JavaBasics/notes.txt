@@ -53,7 +53,7 @@ Line 4:-System.out.println("Hello World");
 -println
  Prints the text and moves to the next line.
 
-**************************************************************************
+*************************************************************************************************************************************************************************
 2.Variables :- 
   A variable is a container that stores data.
 
@@ -99,7 +99,7 @@ Line 4:-System.out.println("Hello World");
    String company = "Microsoft"; 
  
 
- **************************************************************************
+ *************************************************************************************************************************************************************************
 
 3.Operators:-
   Operators perform operations on values.
@@ -129,7 +129,7 @@ Line 4:-System.out.println("Hello World");
     int b = 5;
     System.out.println(a % b);//0
 
-**************************************************************************
+*************************************************************************************************************************************************************************
 
 4. Increment and Decrement Operators
 
@@ -137,38 +137,38 @@ Line 4:-System.out.println("Hello World");
     int x = 5;
     x++;
     
-    System.out.println(x);//5
+    System.out.println(x);//6
 
-  b.Decrement(++):-Subtract 1 to a variable.
+  b.Decrement(--):-Subtract 1 to a variable.
     int x = 5;
     x--;
   
     System.out.println(x);//4
 
-**************************************************************************
+*************************************************************************************************************************************************************************
 
 5.Assignment Operators:- 
 
   a.= :- Assigns a value.
-
-  -Example:-
-   int x=10;
+      -Example:-
+       int x=10;
 
   b.+=
     int x=10;
     x+=5;
-    Equivalent to :- x=x+5
+    Equivalent to :- x=x+5//15
 
-  a.-= 
-    int x-=5;
-    Equivalent to :- x=x-5
+  c.-= 
+    int x=10;
+    x-=5;
+    Equivalent to :- x=x-5//5
 
-  b.*=
+  d.*=
     int x=10;
     x*=5;
-    Equivalent to :- x=x*5
+    Equivalent to :- x=x*5//50
 
-**************************************************************************
+*************************************************************************************************************************************************************************
 
 6.Comparison Operators:-
   These operators always return a boolean (true or false).
@@ -181,8 +181,8 @@ Line 4:-System.out.println("Hello World");
     Meaning:-Is 10 equal to 5?
     System.out.println(a == b);//false
   
-  b.Equal To (!=);
-    Meaning:-Is 10 equal to 5?
+  b.Not Equal To (!=);
+    Meaning:-Is 10 NOT equal to 5?
     System.out.println(a != b);//true
 
   c.Greater Than (>)
@@ -192,12 +192,12 @@ Line 4:-System.out.println("Hello World");
     System.out.println(a < b);//false
 
   e.Greater Than or Equal To (>=)
-    System.out.println(a >= b);/true
+    System.out.println(a >= b);//true
 
   f.Less Than or Equal To (<=)
-    Less Than or Equal To (<=)//false
+    System.out.println(a <= b);//false
 
-**************************************************************************
+*************************************************************************************************************************************************************************
 
 7.Logical Operators:-
  These are used to combine multiple conditions.
@@ -220,8 +220,8 @@ Line 4:-System.out.println("Hello World");
 
      Value 1    Value 2    result
       T          T          T
-      T          F          F 
-      F          T          F 
+      T          F          T 
+      F          T          T 
       F          F          F
 
     -Example:-
@@ -239,7 +239,7 @@ Line 4:-System.out.println("Hello World");
      boolean passed = true;
      System.out.println(!passed);//false
 
-**************************************************************************
+*************************************************************************************************************************************************************************
 
 8.If-Else Statements
   Now Java starts becoming useful.
@@ -250,16 +250,16 @@ Line 4:-System.out.println("Hello World");
      int age= 20;
      
      if(age>=18){
-      System.out.println("Adult")
+      System.out.println("Adult");
      }
    //Adult
    
    b.if-else statement
     -Example:-
-     int age= 100;
+     int age= 10;
      
      if(age>=18){
-      System.out.println("Adult")
+      System.out.println("Adult");
      }else{
       System.out.println("Minor");
     }
@@ -283,7 +283,580 @@ Line 4:-System.out.println("Hello World");
 
     //Java stops checking after finding the first true condition.
 
+*************************************************************************************************************************************************************************
 
+9.Loops:-
+  -What is a Loop?
+   A loop is used to execute a block of code repeatedly until a condition becomes false.
 
+   Without a loop:
+   System.out.println("Java");
+   System.out.println("Java");
+   System.out.println("Java");
+   System.out.println("Java");
+   System.out.println("Java");
 
+   With a loop:
+   for(int i=1;i<=5;i++){
+    System.out.println("Java");
+   } 
+
+   Output:-
+   Java
+   Java
+   Java
+   Java
+   Java
+
+  -Types of Loops
+   a. for loop
+   b. while loop
+   c. do-while loop
+
+  -a.for Loop
+
+  Syntax:-
+          for(initialization; condition; update){
+            // code
+          }
   
+  -Example:-
+          for(int i = 1; i <= 5; i++){
+            System.out.println(i);
+          }
+
+  -Output: 
+          1
+          2
+          3
+          4
+          5
+      
+  Meaning of Each Part:-
+
+  Part 1: Initialization:-
+          int i = 1;
+          Creates variable i
+          Starts with value 1
+          Runs only once
+
+  Part 2: Condition:-
+          i <= 5;
+          If true → continue loop
+          If false → stop loop
+          
+  Part 2: Update:-
+          i++
+          i = i + 1;    
+          After every iteration, increase i by 1.
+
+  -Example 2 :- Print even numbers from 2 to 10.
+          for(int i = 2; i <= 10; i+=2){
+            System.out.println(i);
+          }//2 4 6 8 10
+
+  -Example 3 :- Print odd numbers from 1 to 10.
+          for(int i = 1; i <= 10; i+=2){
+            System.out.println(i);
+          }//1 3 5 7 9
+
+    -Example 4 :- Print number in reverse 
+          for(int i = 10; i >= 1; i--){
+            System.out.println(i);
+          }//10 9 8 7 6 5 4 3 2 1
+  
+*************************************************************************************************************************************************************************
+
+10.While Loop
+   A while loop is useful when you only know the condition.
+    
+  Syntax:-
+  while(condition){
+    // code
+  }
+
+  -Example:-
+   int i = 1;
+
+   while(i <= 5){
+     System.out.println(i);
+     i++;
+   }
+
+   Output: 1 2 3 4 5
+
+   -Execution
+   1.Initial: 
+              i = 1
+   2.Check:
+           i <= 5
+   3.If true:
+             System.out.println(i);
+             i++;
+
+
+*************************************************************************************************************************************************************************
+
+11.do While-loop:-
+   do-while loop executes the code block first and checks the condition afterward.
+
+   Syntax:
+
+   do{
+     // code
+   }
+   while(condition);
+
+   Important:
+   A do-while loop always executes at least one time, even if the condition is false.
+
+   -Example:-
+     int i=10;
+
+     do{
+      System.out.println(i);
+      }while(i<5);
+
+      Output:-10
+*************************************************************************************************************************************************************************
+
+12.Break
+   break immediately terminates (stops) the loop.
+
+   -Example:-
+   for(int i = 1; i <= 10; i++){
+       if(i == 5){
+         break;
+       }
+    System.out.println(i);
+  }
+
+  -Output:
+          1
+          2
+          3
+          4
+
+*************************************************************************************************************************************************************************
+13.Continue:-
+    continue skips the current iteration and moves to the next iteration of the loop.
+
+    -Example:-
+     for(int i=1;i<=5;i++){
+      if(i==3){
+        continue;
+      }
+      System.out.println(i);
+     }
+
+    -Output:-
+             1
+             2
+             4
+             5
+    
+*************************************************************************************************************************************************************************
+
+14.Nested Loops
+   A loop inside another loop is called a Nested Loop.
+
+  -Example:-
+
+    for(int i = 1; i <= 3; i++){
+       for(int j = 1; j <= 2; j++){
+         System.out.println("i = " + i + ", j = " + j);
+       }
+    }
+
+  -Output:-
+    i = 1, j = 1
+    i = 1, j = 2
+    i = 2, j = 1
+    i = 2, j = 2
+    i = 3, j = 1
+    i = 3, j = 2
+
+*************************************************************************************************************************************************************************
+
+15. Arrays
+    An array is used to store multiple values of the same data type in a single variable.
+
+    Without Array:
+                  int mark1 = 90;
+                  int mark2 = 85;
+                  int mark3 = 95;
+                  int mark4 = 80;
+
+    With Array:-
+                 int[] marks = {90, 85, 95, 80};
+                 Instead of creating many variables, we store all values in one array.
+
+    -Creating an Array 
+      Method 1: Direct Initialization
+
+      int[] numbers={10,20,30,40,50};
+
+      MeMory:-
+      Index:-  0  1  2   3   4
+      Value:- 10 20  30  40  50
+
+      Arrays start from index 0.
+
+      Method 2: Create First, Assign Later
+
+      int[] numbers=new int[5];
+
+      MeMory:-
+      Index:-  0 1  2  3  4
+      Value:-  0 0  0  0  0
+
+      Now assign values:-
+      numbers[0] = 10;
+      numbers[1] = 20;
+      numbers[2] = 30;
+      numbers[3] = 40;
+      numbers[4] = 50;
+
+      -Accessing Elements :-
+       int[] numbers = {10,20,30,40,50};
+
+       System.out.println(numbers[0]);//10
+       System.out.println(numbers[1]);//20
+       System.out.println(numbers[2]);//30
+       System.out.println(numbers[4]);//50
+
+      -Changing values:-
+       int[] num={10,20,30};
+       num[0]=100;
+
+       //100 20 30
+
+      -Array Length
+        int[] numbers = {10,20,30,40,50};
+        System.out.println(numbers.length);//5
+
+      -Traversing an Array Using Loop:-
+       int[] numbers = {10,20,30,40,50};
+
+       for(int i = 0; i < numbers.length; i++){
+            System.out.println(numbers[i]);
+        }
+
+        Output:- 10 
+                 20 
+                 30
+                 40 
+                 50
+
+      -Example: Sum of Array Elements:-
+       int[] num={10,20,30,40};
+
+       int sum= 0;
+
+       for(int i=0;i<num.length;i++){
+           sum+=num[i];
+       }
+
+       System.out.println(sum);
+
+      -Enhanced for loop(for-Each Loop):-
+       Java provides a simpler way to traverse arrays.
+
+      -Example:-
+
+       int[] numbers = {10,20,30,40};
+
+       for(int num : numbers){
+           System.out.println(num);
+        }
+       
+       -Output:- 
+                10
+                20
+                30
+                40
+
+      -Meaning
+       for(int num : numbers)
+       For each value inside numbers, store it in num.
+       Iteration 1:-
+                    num=10
+       Print:
+             10
+       Iteration 2:-
+                    num=20
+       Print:
+             20 
+
+      -Example:-Average of Array Elements
+
+       int[] numbers={10,20,30,40};
+
+       int sum=0;
+
+       for(int num:numbers){
+         sum+=num;
+       }
+
+        double Average=(double)sum/numbers.length;
+        System.out.println(Average);//25.0
+
+       -Taking Array Input From User
+
+        First import Scanner:-
+        import java.util.Scanner;
+  
+        public class Main {
+           public static void main(String[] args) {
+
+           Scanner sc = new Scanner(System.in);
+
+           int[] arr = new int[5];
+
+           for(int i = 0; i < arr.length; i++){
+              arr[i] = sc.nextInt();
+            }
+
+           for(int i = 0; i < arr.length; i++){
+              System.out.println(arr[i]);
+           }
+          }
+        }
+
+
+        -Meaning of every line:-
+
+        Scanner sc = new Scanner(System.in);
+        Used to take input from keyboard.
+
+        int[] arr = new int[5];
+        Creates array of size 5.
+
+        for(int i = 0; i < arr.length; i++)
+        Runs:
+            i = 0
+            i = 1
+            i = 2
+            i = 3
+            i = 4
+
+        Store Input:-
+        arr[i] = sc.nextInt();
+
+        If user enters:
+                       10
+                       20
+                       30
+                       40
+                       50
+        Memory becomes:
+                Index:  0   1   2   3   4
+                Value: 10  20  30  40  50
+      
+
+         -Reverse Printing an array:-
+         int[] numbers={10,20,30,40,50};
+
+         for(int i=numbers.length-1;i>=0;i--){
+            System.out.println(numbers[i]);
+         }
+
+         Output: 
+              50
+              40
+              30 
+              20
+              10
+
+*************************************************************************************************************************************************************************
+
+16.Methods:-
+   Method is a block of code that perform a specific task.
+
+   Without methods:- 
+    System.out.println("Hello");
+    System.out.println("Hello");
+    System.out.println("Hello");
+
+   With Methods:- 
+   public static void greet(){
+     System.out.println("Hello");
+   }
+
+   greet();//Hello
+   greet();//Hello
+   greet();//Hello
+
+   Instead of writing the same code repeatedly, we write it once and reuse it.
+
+   -Basic Method Example:
+     public class Main {
+
+     public static void greet(){
+         System.out.println("Hello");
+     }
+
+      public static void main(String[] args) {
+         greet();
+      }
+    }
+
+    Output:-Hello
+
+    //Meaning of every line:-
+
+      public static void greet()
+      1. public
+         The method can be accessed from anywhere.
+      2.static
+        Java can call the method without creating an object.
+      3.void
+        The method does not return any value.
+      4.greet
+        This is the method name
+      5.()
+        Parameter list.
+        Currently empty.
+
+
+      How Method Calling Works
+            public static void greet(){
+               System.out.println("Hello");
+            }
+
+            public static void main(String[] args){
+             greet();
+            }
+
+      Execution:
+      Step 1
+            Java starts from:
+            main()
+            
+      Step 2
+           Sees:
+           greet();
+           
+      Step 3
+            Jumps to:
+            public static void greet()
+        
+      Step 4
+            Runs:
+            System.out.println("Hello");
+            
+      Step 5
+            Returns back to:
+            main()
+
+      -Methods with Parameters:-
+
+      public static void greet(String name){
+        System.out.println("Hello " + name);
+      }
+
+      greet("Pratish");
+       
+      Output:
+      Hello Pratish
+
+     -Meaning :- 
+               String:-
+                    Data type of parameter.
+               name :-
+                  Variable that stores incoming value.
+      
+      When we write:
+                    greet("Pratish");
+                    
+      Java does: 
+                name = "Pratish";
+                
+      Then executes:
+                    System.out.println("Hello " + name);
+                    
+      Result:
+              Hello Pratish
+
+      -Multiple Parameters
+
+      public static void student(String name, int age){
+        System.out.println(name);
+         System.out.println(age);
+      }
+
+      student("Pratish",21);
+
+      -Return Type (Very Important)
+        Until now we used:
+        Void:-Which returns nothing
+
+        But what if we want to return the answer?
+
+        public static int add(int a, int b){
+          return a + b;
+         }
+
+       int result = add(10,20);
+       System.out.println(result);
+
+       -Meaning
+        int means:
+              This method will return an integer value.
+
+        return a+b
+
+        return:Sends the answer back to where the method was called.
+    
+        Example:
+        public static int add(int a, int b){
+          return a + b;
+        }
+
+        int result = add(10,20);
+
+        Java does: result = 30;
+
+      -Method Overloading
+
+         public static int add(int a, int b){
+           return a + b;
+         }
+  
+         public static int add(int a, int b, int c){
+          return a + b + c;
+         }
+
+       -Output:
+        add(10,20)= 30
+        add(10,20,30)  = 60
+
+        Method Overloading:
+          Multiple methods can have the same name
+          if their parameters are different.
+      
+      -void vs return
+       
+       void:
+       Prints or performs a task.
+       Returns nothing.
+
+       Example:
+       public static void greet(){
+         System.out.println("Hello");
+      }
+
+      return:
+      Returns a value.
+
+      Example:
+      public static String greet(){
+         return "Hello";
+      }
+
+*************************************************************************************************************************************************************************
+
+17.String:-
+   
+
+   
