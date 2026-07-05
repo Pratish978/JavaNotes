@@ -246,4 +246,758 @@
 
      }
 
+
+  -Types of constructor:-
+
+   1.Default constructor:-
+     class student{
+         
+          Student(){
+              System.out.println("Default Constuctor");
+          }
+      }
     
+   2.Parameterized Constructor:-
+     class student{
+         
+          Student(String n){
+              name=n;
+          }
+      }
+
+      Student s1 = new Student("Pratish");
+      System.out.println(s1.name);
+
+      Output:- Pratish
+
+    -Constructor With Multiple Parameters:-
+
+     class student{
+
+        String name;
+        int marks;
+
+        student(String n,int m){
+          marks=m;
+          name=n
+        }
+     }
+
+     Student s1 = new Student("Pratish",95);
+     System.out.println(s1.name);
+     System.out.println(s1.marks);
+
+     Output:- Pratish 
+              95
+ 
+   -Constructor Overloading
+
+    class student{
+        
+        student(){
+            System.out.println("Default");
+        }
+
+        student(String name){
+            System.out.println(name);
+        }
+    }
+    
+
+***********************************************************************************************************************************************************
+
+5.Encapsulation:-
+  To protect data, Java provides Encapsulation.
+  -Example:-
+            class employee{
+              
+              private String name;
+              private int salary;
+
+            }
+
+  -Meaning:-
+          private
+          Only code inside the same class can access the variable.
+
+  -Now this is NOT allowed:-
+    Employee e1 = new Employee();
+    e1.salary = 25000; // Error
+    
+    Because salary is private.
+  
+  -Getter and Setter
+    Since variables are private, how do we access them?
+    Java uses Getter and Setter methods.
+
+    -Example:-
+               class Employee{
+                
+                private String name;
+                
+                public void setName(String n){
+                  name = n;
+                  }
+                  
+                  public String getName(){
+                    return name;
+                    }
+               }
+
+    -Meaning:-
+             Setter:-
+                public void setName(String n){
+                  name = n;
+                }
+                Used to store/update data.
+
+              Getter:-
+                public String getName(){
+                  return name;
+                }
+                Used to retrieve data.
+
+***********************************************************************************************************************************************************
+
+6.Inheritance
+  Inheritance allows one class to use the properties and methods of another class.
+  Instead of writing the same code again, we reuse existing code.
+
+   -Real Life Example:- 
+                      Animal 
+                        |
+                        |__ Dog
+    Every Dog is an Animal.
+    So Dog automatically gets Animal's properties and methods.
+
+   -Basic syntax:-
+  
+    class Animal{
+       void eat(){
+         System.out.println("Eating");
+       }
+    }
+
+    class Dog extends Animal{
+    }
+
+    public class Main{
+        public static void main(String[] args){
+
+         Dog d = new Dog();
+
+         d.eat(); 
+        }
+    }
+
+   -Output:-
+           Eating
+
+   -Meaning:-
+    
+    class Animal
+    Animal is the Parent Class (Superclass).
+
+    void eat(){
+    System.out.println("Eating");
+    }
+    Method belonging to Animal.
+
+    class Dog extends Animal{
+    }
+    Child class
+    extends means:Dog inherits everything from Animal.
+
+    Dog d = new Dog();
+    Object Creation
+    Creates Dog object.
+
+    d.eat();
+    Dog does not have eat().
+    Java checks Parent Class Animal.
+    Finds eat() there.
+    Runs it.
+
+   -Memory Idea
+     
+    Animal
+      |
+      |__ eat()
+
+     Dog extends Animal
+      |
+      |_gets eat() automatically
+
+   -Type of Inheritance:- 
+    
+    1.Single Inheritance
+      One child inherits from one parent.
+
+      class Animal{
+          void eat(){
+                System.out.println("Eating");
+          }
+      }
+
+      class Dog extends Animal{
+          void bark(){
+                 System.out.println("Barking");
+           }
+      }
+
+      public class Main{
+         public static void main(String[] args){
+
+         Dog d = new Dog();
+
+         d.eat();
+         d.bark();
+       }
+      }
+
+       Output:-
+              Eating
+              Barking
+
+      How Java Executes
+      Step 1
+      Dog d = new Dog();
+      Creates Dog object.
+      
+      Step 2
+      d.eat();
+      Dog doesn't have eat().
+      Java checks Animal.
+      Finds eat().
+      Prints:
+      Eating
+
+      Step 3
+      d.bark();
+      Dog has bark().
+      Prints:
+      Barking
+
+
+  -Memory View
+      
+      Animal
+        └─ eat()
+
+        Dog
+         └─ bark()
+
+    Dog extends Animal
+
+    Dog gets:
+            eat()
+            bark()
+
+    2.Multilevel Inheritance:-
+      One child becomes a parent for another class.
+
+      class Animal{
+       void eat(){
+           System.out.println("Eating");
+        }
+      }
+
+      class Dog extends Animal{
+        void bark(){
+             System.out.println("Barking");
+          }
+      }        
+
+      class Puppy extends Dog{
+         void weep(){
+               System.out.println("Weeping");
+        } 
+      }
+
+      public class Main{
+      public static void main(String[] args){
+
+        Puppy p = new Puppy();
+
+        p.eat();
+        p.bark();
+        p.weep();
+       }
+      }
+      
+      Output:-
+              Eating
+              Barking
+              Weeping
+
+      Inheritance Chain
+          Animal
+            ↑
+           Dog
+            ↑
+          Puppy
+
+        Puppy gets:
+                  eat() from Animal
+                  bark() from Dog
+                  weep() from Puppy
+
+***********************************************************************************************************************************************************
+
+
+7.Polymorphism(Method Overriding)
+  Method Overriding happens when:
+  -A Parent class already has a method.
+  -A Child class creates the same method again.
+  -Same Method Name.
+  -Same Parameters.
+  -Same Return Type.
+  
+  Then Java uses the Child Class version instead of the Parent Class version.
+
+  -Example:-
+        class Animal{
+           
+           void sound(){
+            System.out.println("Animal Sound");
+           }
+        }
+
+        class Dog extends Animal{
+
+          void sound(){
+            System.out.println("Dog Barks");
+           }
+        }
+     
+        public classMain{
+          public static void main(String[] args){
+
+            Dog d=new Dog();
+
+            d.sound();
+
+         }
+        }
+
+        Same name.
+        Same parameters.
+        Same return type.
+        This is Overriding.
+
+        Output:-
+        Dog Barks
+
+     -Why Didn't Java Print?:-
+      Because Dog created its own version of sound().
+      The Child version overrides the Parent version.
+
+      -Visual Representation
+      -Before Overriding
+
+          Animal
+            |
+            └── sound()
+
+      -After Overriding
+
+          Animal
+            |
+            └── sound()
+
+            Dog
+             |
+             └── sound()   ← New Version
+
+***********************************************************************************************************************************************************
+
+8.Abstraction
+  Showing only important information and hiding implementation details.
+
+  -Real Life Example
+   When you drive a car you know :-
+    You know:
+    ✔ Steering
+    ✔ Brake
+    ✔ Accelerator
+    
+    You don't need to know:
+    ❌ Engine internals
+    ❌ Fuel injection system
+    ❌ Gear mechanism details
+
+    This is Abstraction:-
+    You use the feature without knowing how it is implemented.
+
+   Why Abstraction?
+   Suppose every Animal can make a sound.
+   But:
+   Dog  -> Bark
+   Cat  -> Meow
+   Lion -> Roar
+   The sound() method should exist in every animal.
+   But the implementation is different.
+   Java solves this using Abstract Classes.
+
+   -Abstract Class:-
+    abstract class Animal{
+        abstract void sound();
+     }
+
+    -Meaning
+     abstract class Animal
+     Abstract class cannot create objects.
+
+     Not allowed:
+     Animal a = new Animal();
+
+     abstract void sound();
+     Method declaration only.
+
+     -Example:- 
+
+      abstract class Animal{
+          abstract void sound();
+      }
+      
+      class Dog extends Animal{
+         
+         void sound(){
+               System.out.println("Dog Barks");
+           }
+      }
+
+     public class Main{
+
+       public static void main(String[] args){
+
+         Dog d = new Dog();
+
+         d.sound();
+      }
+    }
+
+    Output:
+          Dog Barks
+
+    -Step-by-Step Execution
+    
+    Step 1
+    Dog d = new Dog();
+    Creates Dog object.
+    
+    Step 2
+    d.sound();
+    Calls sound().
+    
+    Step 3
+    Java checks Dog class.
+    Finds:
+    void sound(){
+         System.out.println("Dog Barks");
+     }
+     Runs it.
+     
+     Step 4
+
+     Output:
+     Dog Barks
+     
+     Important Rule
+     If a class contains an abstract method:
+     abstract void sound();
+     Then the class must also be abstract:
+     abstract class Animal
+
+    -An abstract class can have:
+      Normal Methods 
+
+      abstract class Animal{
+
+    void eat(){
+        System.out.println("Eating");
+    }
+
+    abstract void sound();
+    }
+
+    So an abstract class can contain BOTH.
+
+***********************************************************************************************************************************************************
+
+9.Interface
+  An Interface is a blueprint of methods.
+  It tells a class:
+  "What methods you must create."
+  But it does not provide the implementation
+
+  Why Interface?
+  Suppose every animal can:
+  
+  Eat
+  Sleep
+  Sound
+  
+  Different animals implement these differently.
+  Interface forces classes to implement required methods.
+
+  -Example :-
+
+   interface Animal{
+     void sound();
+   }
+
+   Meaning:-
+   interface Animal
+   Creates an Interface named Animal.
+
+   void sound();
+   Method declaration only.
+
+  -Implementing an Interface:-
+
+    interface Animal{
+
+      void sound();
+    }
+
+    class Dog implement Animal{
+
+      public void sound(){
+        System.out.println("Dog Barks");
+      }
+    }
+
+    Meaning
+     class Dog implements Animal
+     Dog agrees to implement everything inside Animal.
+
+     public void sound()
+     Creates the required method.
+
+     Example:-
+
+     interface Animal{
+      void sound();
+     }
+
+      class Dog implements Animal{
+
+        public void sound(){
+           System.out.println("Dog Barks");
+        }
+      }
+
+      public class Main{
+
+       public static void main(String[] args){
+
+        Dog d = new Dog();
+
+        d.sound();
+      }
+    }
+
+    Output:-Dog Barks
+
+***********************************************************************************************************************************************************
+
+10. this Keyword
+    this refers to the current object.
+
+    Why do we need this?:-
+    Problem:
+    class Student{
+      String name;
+
+        Student(String name){
+           name = name;
+        }
+    }
+    Both variables are named name.
+    Java gets confused.
+
+    Example:-
+    class Student{
+      String name;
+
+        Student(String name){
+           this.name = name;
+        }
+    }
+
+    -Meaning
+
+    this.name
+    means:
+    Current object's name variable
+    
+    name
+    means:
+    Parameter name
+
+    Example:-
+      class Student{
+        
+        String name;
+
+        Student(String name){
+           this.name = name;
+        }
+
+        void show(){
+           System.out.println(name);
+        }
+      }
+
+      public class Practice11{
+
+        public static void main(String[] args){
+
+        Student s1 = new Student("Pratish");
+
+        s1.show();
+      }
+    }
+
+    -Step-by-Step
+     Step 1
+     Student s1 = new Student("Pratish");
+     Object created.
+     
+     Step 2
+     Constructor runs.
+     this.name = name;
+     
+     Java does:
+     s1.name = "Pratish"
+
+     Step 3
+     s1.show();
+     
+     Prints:
+     Pratish
+
+***********************************************************************************************************************************************************
+
+11. super Keyword
+   super refers to the Parent Class object.
+
+   Why do we need super?
+   Suppose Parent and Child both have same variable.
+
+   class Animal{
+
+    String name = "Animal";
+  }
+
+  class Dog extends Animal{
+
+    String name = "Dog";
+
+    void show(){
+
+        System.out.println(name);
+
+        System.out.println(super.name);
+    }
+  }
+
+  Meaning
+  name
+  means:
+  Dog's name
+  super.name
+  means:
+  Animal's name
+
+   Example
+   class Animal{
+
+    String name = "Animal";
+   }
+  
+   class Dog extends Animal{
+
+    String name = "Dog";
+
+    void show(){
+
+        System.out.println(name);
+
+        System.out.println(super.name);
+     }
+   }
+
+  public class Main{
+
+    public static void main(String[] args){
+
+        Dog d = new Dog();
+
+        d.show();
+     }
+  }
+
+  Output:
+
+   Dog
+   Animal
+   super with Methods
+
+   class Animal{
+
+    void sound(){
+        System.out.println("Animal Sound");
+    }
+   }
+
+   class Dog extends Animal{
+
+    void sound(){
+        System.out.println("Dog Barks");
+    }
+
+    void display(){
+
+        sound();
+
+        super.sound();
+    }
+   }
+
+    Output:
+
+    Dog Barks
+    Animal Sound
+    Meaning
+    sound();
+
+   Current class method.
+
+   super.sound();
+
+   Parent class method.
+
+   super Constructor
+   class Animal{
+
+    Animal(){
+        System.out.println("Animal Constructor");
+    }
+    }
+
+    class Dog extends Animal{
+
+    Dog(){
+
+        super();
+
+        System.out.println("Dog Constructor");
+    }
+    }
+
+    Output:
+
+    Animal Constructor
+    Dog Constructor
