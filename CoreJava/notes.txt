@@ -1,0 +1,373 @@
+1.Exception Handling
+  An Exception is an error that occurs during program execution and can stop the program.
+
+   -Example:-
+    int a=10; 
+    int b=0;
+
+    System.out.println(a/b);
+
+   -Output:-
+           ArithmeticException
+           / by zero
+           Program crashes.
+
+    Why Exception Handling?
+    Without Exception Handling:-
+
+    System.out.println("Start");
+    int a = 10/0;
+    
+    System.out.println("End");
+
+    Output:-
+    Start
+    ArithmeticException
+    End never prints because the program crashes.
+
+   -try and catch
+
+    try{
+    int a = 10/0;
+    }
+    catch(Exception e){
+    System.out.println("Error Occurred");
+    }
+
+    Output:
+    Error Occurred
+    Program does not crash.
+
+    Meaning of every line:-
+
+    try
+        Put risky code here.
+
+    int a = 10/0;
+    This may create an exception.
+
+    catch(Exception e)
+    If an exception occurs, catch it.
+
+    System.out.println("Error Occurred");
+    Runs instead of crashing.
+
+   -Example:-
+
+     public class Main{
+
+     public static void main(String[] args){
+
+        System.out.println("Start");
+
+        try{
+            int a = 10/0;
+        }
+        catch(Exception e){
+            System.out.println("Error Occurred");
+        }
+
+        System.out.println("End");
+       }
+     }
+
+     Output:-
+             Start
+             Error Occurred
+             End
+
+     Step by Step Exection:-
+
+     Step 1:-
+     Java prints:
+     Start
+
+     Step 2:-
+     Java enters:
+     try{
+        int a = 10/0;
+     }
+
+     Step 3:-
+     Exception occurs:
+     ArithmeticException
+
+     Step 4:-
+     Java immediately jumps to:
+     catch(Exception e)
+
+     Step 5:-
+     Prints:-
+     Error Occurred
+
+     Step 6
+     Program continues.
+     Prints:
+     End
+
+************************************************************************************************************************************************************
+
+2.Finally Block :-
+  Sometimes we want some code to run no matter what happens.
+  For that Java provides:
+  finally
+
+    -Example:-
+        public class Main{
+
+        public static void main(String[] args){
+
+           try{
+              int a = 10/0;
+            }
+           catch(Exception e){
+                System.out.println("Catch");
+            }
+            finally{
+                System.out.println("Finally");
+             }
+           }
+        }
+
+    -Output:-Catch 
+             Finally
+
+    -Example 2:-
+
+        public class Main{
+
+        public static void main(String[] args){
+
+           try{
+              int a = 10/2;
+              System.out.println(a);
+            }
+            catch(Exception e){
+                 System.out.println("Catch");
+            }
+            finally{
+                 System.out.println("Finally");
+             }
+            }
+        }
+
+    -Output:-
+              5
+              Finally
+              No exception occurred.
+              Still finally runs.
+
+    -Meaning of finally
+
+        finally{
+          // Always runs
+        }
+            
+        Used for:
+        Closing files
+        Closing database connections
+        Cleanup code
+
+    -Multiple Catch Blocks
+     Different exceptions can be handled differently.
+
+************************************************************************************************************************************************************
+
+3.Multiple Catch Blocks
+  Different exceptions can be handled differently.
+
+    -Example:-
+     try{
+       int[]arr={10,20,30};
+
+      System.out.println(arr[5]);
+     }
+     catch(ArithmeticException e){
+          System.out.println("Arithmetic Error");
+     }
+     catch(ArrayIndexOutOfBoundsException e){
+          System.out.println("Array Error");
+     }
+     catch(Exception e){
+          System.out.println("Some Error");
+     }
+
+    -Output:-Array Error
+
+    -How Java Checks Catch Blocks
+      Java checks from top to bottom.
+    
+      Exception Occurs
+          ↓
+      Check Catch 1
+          ↓
+      Check Catch 2
+          ↓
+      Check Catch 3
+          ↓
+      Matching Catch Executes
+
+    -Important Rule
+      Always keep:
+      catch(Exception e)
+      at the end.
+      Because: Exception is the parent of most exceptions.
+
+************************************************************************************************************************************************************
+
+4.throw Keyword
+  Sometimes we want to create an exception manually.
+
+     -Example:
+     
+     throw new ArithmeticException("Invalid");
+     
+     Java immediately creates an exception.
+
+     public class Main{
+
+     public static void main(String[] args){
+
+        throw new ArithmeticException("Invalid");
+      }
+     }
+
+     -Output:
+              ArithmeticException: Invalid
+              Program crashes.
+
+    -With try-catch
+
+      public class Main{
+
+      public static void main(String[] args){
+
+        try{
+
+            throw new ArithmeticException("Invalid");
+
+        }
+        catch(Exception e){
+
+            System.out.println("Caught");
+        }
+     }
+     }
+
+    -Output:-
+           Caught
+
+        Step 1
+        Java enters:
+        try
+        and starts executing code inside it.
+        
+        Step 2
+        Java sees:
+        throw new ArithmeticException();
+        This means:
+        Create an ArithmeticException RIGHT NOW.
+        So yes, an ArithmeticException is created immediately.
+        
+        Step 3
+        Now Java asks:
+        Is there a matching catch block nearby?
+        Java checks:
+        catch(Exception e)
+        and thinks:
+        ArithmeticException IS-A Exception
+        because:
+        Exception
+           ↑
+        ArithmeticException
+        ArithmeticException is a child of Exception.
+        So this catch block can handle it.
+        
+        Step 4
+        Java jumps directly to:
+        catch(Exception e){
+            System.out.println("Error");
+            }
+        and prints:
+        Error
+            
+        Step 5
+        After catch finishes, program continues:
+        System.out.println("End");
+        
+        Output:
+             Error
+             End
+
+************************************************************************************************************************************************************
+
+5.throws Keyword
+  throw and throws are different.
+  
+     throw
+     Used to manually create an exception.
+  
+     throw new ArithmeticException();
+
+     throws
+
+     Used to tell Java:
+  
+     "This method may produce an exception."
+
+     - Example:
+
+       import java.io.IOException;
+
+       public class Main{
+
+       public static void test() throws IOException{
+              throw new IOException();
+        }
+
+        public static void main(String[] args){
+
+         }
+        }
+
+        Here:
+          throws IOException
+
+        means:
+           test() may generate IOException
+
+************************************************************************************************************************************************************
+
+6.Checked vs Unchecked Exceptions
+  This is a very common interview question.
+   
+    -Unchecked Exceptions
+     These happen during program execution.
+
+      -Examples:
+       ArithmeticException
+       ArrayIndexOutOfBoundsException
+       NullPointerException
+      
+       Example:
+       int a = 10/0;
+      
+       Output:
+       ArithmeticException
+
+    -Checked Exceptions
+    Java forces you to handle them.
+    
+    Example:
+        IOException
+        FileNotFoundException
+        
+    Java will give compile-time error unless you:
+    
+    try-catch
+    or
+    throws
+
+
+************************************************************************************************************************************************************
+
