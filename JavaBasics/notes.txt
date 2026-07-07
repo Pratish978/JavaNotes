@@ -1050,3 +1050,141 @@ Line 4:-System.out.println("Hello World");
     Avoid:
     ==
     for beginners.
+
+  16.indexOf()
+     Used to find the position of a character or word.
+     -Example:-
+      String name="Pratish";
+      System.out.println(name.indexOf('a'));
+      Memory:-
+      P r a t i s h
+      0 1 2 3 4 5 6
+      Output:-
+               2
+
+  17.lastIndexOf()
+     Finds the last occurrence.
+     -Example:-
+      String text = "Java Java";
+      System.out.println(text.lastIndexOf("a"));
+      Memory:-
+      J a v a   J a v a
+      0 1 2 3   5 6 7 8
+      Output:-
+              8
+
+  18.startsWith()
+     Check beginning
+     -Example:-
+      String text = "Java Programming";
+      System.out.println(text.startsWith("Java"));
+      Output:-
+      true//Because string starts with Java.
+  
+  19.endsWith()
+     Checks ending.
+     -Example:-
+      String text = "Java Programming";
+      System.out.println(text.endsWith("Programming"));
+      output:-
+      true//Because string  ends with Programming
+
+  20.isEmpty()
+     Checks whether String is empty.
+     -Example:
+      String text = "";
+      System.out.println(text.isEmpty());
+      output:-
+      true
+
+  21.String Immutability
+     Very Important Interview Topic
+
+     -Suppose:
+      String s = "Java";
+      s.concat(" Programming");
+      System.out.println(s);
+
+      Output:-
+      Java
+      Strings are Immutable.
+      Immutable means: Cannot be changed after creation.
+
+     -Correct way:
+      s = s.concat(" Programming");
+      System.out.println(s);
+
+      Output:-
+      Java Programming
+
+  22.String Pool 
+     Very common interview question.
+     
+     Example:
+     String a = "Java";
+     String b = "Java";
+     
+     Many beginners think:
+     2 Strings created
+     
+     Actually:
+     Only 1 String object
+     Java stores it in a special area called:
+     String Pool
+     
+     Memory:
+     String Pool
+     "Java"
+       ↑
+       |
+      a,b
+
+    Both point to same String.
+    This saves memory.
+
+  23.StringBuilder
+    
+    -Problem:
+     String s = "Java";
+     s = s + " Programming";
+     s = s + " Language";
+     s = s + " Course";
+     Every time Java creates a new String.
+     This wastes memory
+    
+    -Solution:-
+     StringBuilder sb = new StringBuilder("Java");
+
+    -Appending
+     sb.append("Programming")
+
+    -Memory becomes:
+     Java Programming
+
+    -Example:- 
+     StringBuilder sb = new StringBuilder("Java");
+     sb.append("Programming")
+     System.out.println(sb);
+
+    -Output
+     Java Programming
+
+     -difference between string and StringBuilder
+      String:- Immutable ,slow
+      StringBuilder:- Mutable ,Fast
+
+  24.StringBuffer
+     Works like StringBuilder.
+
+     -Example:-
+      StringBuffer sb=new StringBuffer("Java");
+      sb.append("Programming");
+      System.out.println(sb);
+
+      -Output:-
+       Java Programming
+
+      -Difference?
+       String:- Immutable ,slow
+       StringBuilder:- Mutable ,Fast
+       StringBuffer:-Mutable,Thread Safe,Slightly Slower
