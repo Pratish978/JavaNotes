@@ -371,3 +371,753 @@
 
 ************************************************************************************************************************************************************
 
+7.Collections Framework 
+   Why Do We Need Collections?
+   Suppose you want to store student marks.
+
+   Using Array:
+    int[] marks = {90, 85, 95};
+    Works fine.
+   But what if you want to:
+    Add a new mark
+    Delete a mark
+    Store 1000 marks
+    Search quickly
+
+  Arrays have limitations:
+    Fixed Size
+    Difficult to insert
+    Difficult to delete
+
+  So Java created:
+    Collections Framework
+
+  What is Collections Framework?:-
+    Collections Framework is a group of classes and interfaces used to store and manage multiple objects.
+    Simple meaning:A toolbox for storing data.
+
+  -Collections Framework:-Collections Framework
+                          ├── ArrayList
+                          ├── LinkedList
+                          ├── HashSet
+                          ├── HashMap.
+
+  -Main interfaces
+   Think of interface as bluprint
+    List 
+    Set
+    Map
+    Queue
+
+  -Main Classes
+   These are the actual implementations.
+   ArrayList
+   LinkedList
+   HashSet
+   HashMap
+
+  -Most important collection types:-
+
+   1.List:-
+     Stores data in order
+     -Example:-
+            10
+            10
+            30
+      Duplicates allowed.:-
+            10
+            20
+            10
+            30
+      Classes:
+            ArrayList
+            LinkedList
+
+   2.Set:-
+       Stores unique values.
+       
+      -Example:
+        Input:
+              10
+              20
+              10
+              30
+
+        Stored:
+              10
+              20
+              30
+              Duplicate removed.
+              
+        Class: 
+              HashSet
+
+   3.Map:-
+       Stores:
+              Key → Value
+            
+       Example:
+               101 → Pratish
+               102 → Java
+               
+       Class:
+             HashMap
+    
+
+    Collections Hierarchy
+
+      Collection
+         |
+      --------------------------------
+      |                  |            |
+     List              Set           Map
+      |                 |             | 
+    ArrayList      HashSet           HashMap
+    LinkedList
+
+  -What is the difference between Array and ArrayList?
+   Array:
+         Fixed size
+         Can store primitives
+   ArrayList:
+             Dynamic size
+             Can grow automatically
+             Stores objects
+
+            
+************************************************************************************************************************************************************
+
+8.ArrayList
+  Think of ArrayList as:
+  ArrayList = Dynamic Array
+ 
+  -Normal Array:
+   c
+   Can store only:
+   3 values
+   No more.
+
+  -ArrayList:
+   ArrayList<Integer> List=new ArrayList();
+  
+  -Why ArrayList
+   Array:-
+    ArrayList:
+  -Memory:-
+    [0]
+    [0]
+    [0]
+  -If you want to add 4th value:
+   Not possible.
+
+  -ArrayList:
+   ArrayList<Integer> List=new ArrayList();
+  -Memory:-
+    10
+    20
+    30
+    Add one more:
+    10
+    20
+    30
+    40
+    Automatically grows.
+
+  -Creating ArrayList
+   First import:
+     java.util.ArrayList;
+     Create:-
+     ArrayList<Integer> List=new ArrayList();
+    
+     -Meaning of every line
+      1.ArrayList:-
+                    Class Name
+      2.Integer:-
+                  Data type(Store integers)
+      3.list:-
+               Variable Name
+      4.new ArrayList<>():-
+                          Creates ArrayList Object        
+  
+  -Adding Elements:-
+    Method:-
+          add()
+
+    Example:-
+             list.add(10);
+             list.add(20);
+             list.add(30);
+
+    Memory:-
+            [10,20,30]
+
+  -Printing ArrayList:-
+          System.out.println(list);
+
+  -Output:-
+          [10,20,30]
+
+  -Example:-
+            import java.util.ArrayList;
+            
+            public class Main {
+               public static void main(String[] args) {
+
+               ArrayList<Integer> list =new ArrayList<>();
+
+               list.add(10);
+               list.add(20);
+               list.add(30)
+
+               System.out.println(list);
+              }
+            }
+
+  -Output:-
+          [10, 20, 30]
+
+  -ArrayList get()
+   Used to access elements.
+
+    -Example:-
+              ArrayList<Integer> nums=new ArrayList<>();
+   
+              nums.add(10);
+              nums.add(20);
+              nums.add(30);
+
+              System.out.println(nums.get(0));
+              System.out.println(nums.get(1));
+
+    -Memory: 
+            Index: 0  1  2
+            Value: 10 20 30
+
+    -Output:-
+             10
+             20
+
+  -ArrayList size()
+   Returns total elements.
+
+    -Example:-
+              ArrayList<Integer> nums=new ArrayList<>();
+   
+              nums.add(10);
+              nums.add(20);
+              nums.add(30);
+
+              System.out.println(nums.size());
+
+    -Output:-
+             3
+
+  -ArrayList remove()
+   Used to delete an element.
+
+    -Example:-
+              ArrayList<Integer> nums=new ArrayList<>();
+   
+              nums.add(10);
+              nums.add(20);
+              nums.add(30);
+
+              nums.remove(1);
+
+              System.out.println(nums);
+          
+    -Memory Before:
+                   Index: 0 1 2
+                   Value:10 20 30
+
+                   Java removes:
+                   nums.remove(1);
+                   Element at index 1:
+                   20
+                   Memory After:
+                   [10, 30]
+
+    -Output: 
+            [10, 30]
+
+  -ArrayList set()
+   Used to update/replace a value.
+
+    -Example:-
+              ArrayList<Integer> nums=new ArrayList<>();
+   
+              nums.add(10);
+              nums.add(20);
+              nums.add(30);
+
+              nums.set(1,50);
+
+              System.out.println(nums);
+
+    -Meaning:
+             nums.set(index, newValue);
+             Index 1 = 50
+             Memory Before:
+             [10, 20, 30]
+             Memory After:
+             [10, 50, 30]
+             Output:
+             [10, 50, 30]
+
+  -Complete Basic ArrayList Methods
+
+             Method                       Purpose
+             add()                     Insert element
+             get()                     Access element
+             size()                    Total elements
+             remove()                  Delete element
+             set()                     Update element
+
+  -ArrayList Looping
+    
+    -Example:-
+              ArrayList<Integer> nums = new ArrayList<>();
+              
+              nums.add(10);
+              nums.add(20);
+              nums.add(30);
+
+    -Memory:-
+             index:-0  1  2
+             value: 10 20 30
+
+    -Method 1: for Loop
+             
+             for(int i = 0; i < nums.size(); i++){
+                   System.out.println(nums.get(i));
+              }
+
+    -Method 2:Enhanced for Loop (for-each)
+
+              for(Integer num : nums){
+                System.out.println(num);
+              }
+
+      -Meaning:
+       Java automatically takes:
+       10
+       20
+       30
+       
+       one by one and stores them in:
+       num
+
+      -Output:
+       10
+       20
+       30
+
+************************************************************************************************************************************************************
+
+9.LinkedList
+  A LinkedList is another collection that stores data in order like ArrayList.
+
+   Why was LinkedList created?
+   ArrayList is very good at:
+   
+   Reading data
+   Accessing data
+   But when inserting/deleting in the middle, Java has to shift elements.
+
+   Example:
+
+   Before:
+          [10, 20, 30]
+
+   Insert 15:
+            [10, 15, 20, 30]
+
+   Java shifts: 
+               20
+               30
+    to the right.
+
+    LinkedList was designed to make insertions and deletions easier.
+
+   -Creating LinkedList
+     Import:
+     import java.util.LinkedList;
+
+     Create:
+     LinkedList<Integer> list=new LinkedList<>();
+
+     Adding Elements:-
+      list.add(10);
+      list.add(20);
+      list.add(30);
+
+     Memory:-
+       [10, 20, 30]
+
+     Printing
+       System.out.println(list);
+       [10, 20, 30]
+
+    -Methods are almost the same as ArrayList:
+      add()
+      get()
+      remove()
+      set()
+      size()
+      All work in LinkedList too.
+
+    -Example:-
+             LinkedList<Integer> list=new LinkedList<>();
+
+             list.add(10);
+             list.add(20);
+             list.add(30);
+
+             System.out.println(list.get(1));
+
+    -Memory:-
+             Index: 0 1 2
+             Value:10 20 30
+        
+    -Output:-
+             20
+
+     ArrayList = Fast Access
+     LinkedList = Fast Insert/Delete
+
+    
+************************************************************************************************************************************************************
+
+10.HashSet
+   A HashSet stores unique values only.
+     
+    -Example:-
+              HashSet<Integer> set = new HashSet<>();
+              
+              set.add(10);
+              set.add(20);
+              set.add(10);
+              set.add(30);
+              
+              System.out.println(set);
+              
+              You inserted:
+                          10
+                          20
+                          10
+                          30
+                          
+              But HashSet stores:
+                                10
+                                20
+                                30
+              because duplicate 10 is removed.
+
+    -Creating HashSet
+                 import java.util.HashSet;
+                 HashSet<Integer> set =new HashSet<>();
+
+    -Adding Elements
+                    set.add(5);
+                    set.add(10);
+                    set.add(15);
+
+    -Memory:
+            [5, 10, 15]
+
+    -Duplicate Example
+                   HashSet<Integer> set = new HashSet<>();
+                   
+                   set.add(5);
+                   set.add(10);
+                   set.add(5);
+                   set.add(15);
+
+                   System.out.println(set);
+
+    -Output:
+            [5, 10, 15]
+            The second 5 is ignored.
+
+    -size()
+           System.out.println(set.size());
+           Returns:
+           3
+           because only 3 unique values exist.
+
+
+************************************************************************************************************************************************************
+
+11.Hashmap
+   HashMap is a collection class that stores data in:
+   key → Value pairs
+
+   -Example:-
+             101→Java
+             102→HTML
+             103→CSS
+
+   -Creating HashMap:-
+
+    import java.util.HashMap;
+    HashMap<Integer,String> map = new HashMap<>();
+
+   -Here:
+        Integer → Key Type
+        String  → Value Type
+        map     → Variable Name
+
+   -Adding Data:-
+        map.put(101,"Java");
+        map.put(102,"HTML");
+        map.put(103,"CSS");
+
+   -Memory:-
+        101 → Java
+        102 → HTML
+        103 → CSS
+
+   -Getting Data:-
+        System.out.println(map.get(101));
+        Java looks for:
+               Key = 101
+        and returns:
+               Java
+        Output:-
+               Java
+
+   -Finding Size:-
+    System.out.println(map.size());
+
+   -Output:- 
+    3
+
+   -Full code:-
+    import java.util.HashMap;
+
+    public class Main{
+      public static void main(String[] args){
+        HashMap<Integer,String> map = new HashMap<>();
+
+        map.put(101,"Java");
+        map.put(102,"HTML");
+        map.put(103,"CSS");
+
+        System.out.println(map.get(101));
+        System.out.println(map.size());
+
+      }
+    }
+
+   -Output:-
+            Java
+            3
+
+   -Impotant Rule:-
+    Hashmap can have duplicate keys
+     -Example:
+             map.put(101,"Java");
+             map.put(101,"Python");
+
+     -Now memory becomes:
+             101 → Python
+             Java value is replaced.
+     -Output:
+           System.out.println(map.get(101));
+           Python
+
+   -Difference:-
+      -ArrayList
+        Index → Value
+        0 → Java
+        1 → HTML
+        2 → CSS
+
+      -HashMap
+        Key → Value
+        101 → Java
+        102 → HTML
+        103 → CSS
+
+   -Traversing a HashMap
+    Just like we traversed an ArrayList:
+     for(String name: list){
+        System.out.println(name);
+     }
+
+     -Method 1: Print All Keys
+      
+      HashMap<Integer,String> map = new HashMap<>();
+      
+      map.put(101,"Java");
+      map.put(102,"HTML");
+      map.put(103,"CSS");
+
+      for(Integer Key : map.keySet()){
+          System.out.println(key);
+      }
+
+      -Output:-
+       101
+       102
+       103
+
+     -Method 2: Print All Values
+
+      HashMap<Integer,String> map = new HashMap<>();
+      
+      map.put(101,"Java");
+      map.put(102,"HTML");
+      map.put(103,"CSS");
+
+      for(String value : map.values()){
+          System.out.println(value);
+      }
+
+      -Output:-
+       Java
+       HTML
+       CSS
+
+     -Method 3 (Most Important)
+      Print Key + Value Together
+
+      for(Integer key : map.keySet()){
+         System.out.println(
+           key + " -> " + map.get(key)
+         );
+      }
+
+      -Output:- 
+        101 -> Java
+        102 -> HTML
+        103 -> CSS
+        HashMap does NOT guarantee insertion order.
+
+
+   -containsKey()
+     Checks whether a key exists.
+
+    -Example:-
+     HashMap<Integer,String> map = new HashMap<>();
+     map.put(101,"Java");
+     map.put(102,"HTML");
+
+     System.out.println(map.containsKey(101));//true
+     System.out.println(map.containsKey(999));false
+
+   -containsValue()
+     Checks whether a value exists
+
+     System.out.println(map.containsValue("Java"));//true
+     System.out.println(map.containsValue("Python"));//false
+
+   -remove()
+     Removes a key-value pair.
+
+     map.remove(101);
+     System.out.println(map);
+
+     -Output:
+      102=HTML
+
+  
+   -replace()
+     Updates the value of an existing key.
+
+     map.replace(102,"CSS");
+     System.out.println(map.get(102));
+
+    -Output:
+      CSS
+
+************************************************************************************************************************************************************
+
+12.Iterator
+   Iterator is an interface used to traverse elements of a collection one by one.
+
+    -Creating Iterator
+     import java.util.*;
+     ArrayList<String> list = new ArrayList<>();
+    
+     list.add("Java");
+     list.add("HTML");
+     list.add("CSS");
+    
+     Iterator<String> it = list.iterator();
+
+     Here:
+      -it
+        points to the first element.
+
+      -hasNext()
+       Checks whether another element exists.
+       System.out.println(it.hasNext());
+       
+       -Output:-
+       true
+
+      -next()
+       Returns current element and moves forward.
+       System.out.println(it.next());
+       
+       Output:
+       Java
+       Now iterator moves to:
+       HTML
+      
+************************************************************************************************************************************************************
+
+13.LinkedHashSet
+   HashSet<String> set = new HashSet<>();
+   
+   set.add("Java");
+   set.add("HTML");
+   set.add("CSS");
+
+   Removes duplicates.
+   But:Does NOT maintain insertion order.
+   Possible output: 
+     HTML
+     Java
+     CSS
+     
+     or
+     
+     CSS
+     Java
+     HTML
+
+     LinkedHashSet removes duplicates and maintains insertion order.
+
+      -Example:
+       import java.util.*;
+       LinkedHashSet<String> set = new LinkedHashSet<>();
+       
+       set.add("Java");
+       set.add("HTML");
+       set.add("CSS");
+       set.add("Java");
+       
+       System.out.println(set);
+
+       -Output:-
+        [Java, HTML, CSS]
+
+************************************************************************************************************************************************************
+
+14.LinkedHashMap
+   LinkedHashMap stores Key → Value pairs and maintains insertion order.
+
+   -Example:
+    LinkedHashMap<Integer,String> map = new LinkedHashMap<>();
+
+    map.put(10,"Java");
+    map.put(20,"HTML");
+    map.put(30,"CSS");
+
+    System.out.println(map);
+
+  -Output:-
+   {10=Java, 20=HTML, 30=CSS}
+   Order remains exactly the same.
