@@ -1121,3 +1121,277 @@
   -Output:-
    {10=Java, 20=HTML, 30=CSS}
    Order remains exactly the same.
+
+************************************************************************************************************************************************************
+15.Java 8 Features - 
+    1: Lambda Expression
+       A Lambda Expression is a short way of writing an implementation of a functional interface.
+       Syntax:-
+        (parameters) -> expression
+        or
+        (parameters) -> {
+          statements
+        }
+
+      -Normal way:-
+        interface Demo{
+          void show();
+        }
+
+        public class Main{
+           public static void main(String[] args){
+            Demo d = new Demo(){
+
+              public void show(){
+                System.out.println("Hello");
+              }
+            };
+            d.show();
+          }
+        }
+
+      -Output:Hello
+       Lots of code.
+
+      -Same using Lambda
+
+       interface Demo{
+           void show();
+       }
+
+       public class Practice11{
+
+       public static void main(String[] args){
+
+        Demo d = () -> System.out.println("Hello");
+
+        d.show();
+        }
+       }
+
+      -Output:Hello
+       Much shorter.
+
+      -Example with Parameter
+       interface Demo{
+           void show(String name);
+       }
+
+       public class Practice12{
+
+       public static void main(String[] args){
+
+        Demo d = (name) -> System.out.println(name);
+
+        d.show("Pratish);
+        }
+       }
+
+       Lambda Expressions:
+                          Reduce code
+                          Improve readability
+                          Used heavily with Stream API
+                          Used with Functional Interfaces
+                           
+
+    2.Functional Interface?
+      A Functional Interface is an interface that contains exactly one abstract method.
+        -Example:
+         interface Demo{
+           void show();
+           }
+           
+          Here:
+          show()
+          is the only abstract method.
+          So Demo is a Functional Interface.
+          
+          Why is it called Functional?
+          Because Java 8 Lambda Expressions can work only with interfaces that have:
+          Exactly 1 abstract method
+          
+          Valid Functional Interface
+           interface Demo{
+           void show();
+           }
+           
+          Abstract methods:
+          1
+          Functional Interface
+          
+          Not a Functional Interface
+          interface Demo{
+            void show();
+            void print();
+            }
+            Abstract methods:
+            2
+            Not a Functional Interface
+            Lambda will not work here.
+
+          -@FunctionalInterface Annotation
+         
+           Java provides:
+           @FunctionalInterface
+           interface Demo{
+            void show();
+            }
+            
+           This tells Java:
+            "This interface must always have exactly one abstract method."
+            If you accidentally add another abstract method:
+            void print();
+            Java gives a compile-time error.
+
+          -Interview Questions
+           Q1. What is a Functional Interface?
+               A Functional Interface is an interface containing exactly one abstract method. It is mainly used with Lambda Expressions.
+               
+           Q2. Can a Functional Interface have
+               It can have multiple methods, but only one abstract method. It may also contain default and static methods.
+
+           Q3. Why are Functional Interfaces used?
+               They enable Lambda Expressions and make code shorter and more readable.
+
+    3.Stream API
+      Stream API is used to process collections of data in a simple and efficient way.
+      Operations:
+                 Filtering
+                 Sorting
+                 Searching
+                 Mapping
+                 Counting
+
+      -First Stream Example
+       
+        import java.util.*;
+
+        public class Main{
+         public static void main(String[] args){
+           ArrayList<Integer> list = new ArrayList<>();
+
+           list.add(10);
+           list.add(15);
+           list.add(20);
+           list.add(25);
+
+           list.stream()
+              .filter(num -> num % 2 == 0)
+              .forEach(System.out::println);
+            
+          }
+         }
+
+         -Output:-
+          10
+          20
+
+        -Understanding Step-by-Step
+          list.stream()
+          Converts collection into a stream.
+          [10,15,20,25]
+                ↓
+              Stream
+              
+          filter()
+           Selects only matching elements.
+           .filter(num -> num % 2 == 0)
+           Checks: 
+                 10 → Even 
+                 15 → Odd 
+                 20 → Even 
+                 25 → Odd 
+          Remaining:
+                 10
+                 20
+                 
+          forEach()
+           Prints every element.
+            .forEach(System.out::println);
+            Output:
+            10
+            20
+
+      -count():-
+          Suppose we want to count how many even numbers exist.
+
+          public class Main{
+          public static void main(String[] args){
+           ArrayList<Integer> list = new ArrayList<>();
+
+           list.add(10);
+           list.add(15);
+           list.add(20);
+           list.add(25);
+
+           long count=list.stream()
+                          .filter(num -> num % 2 == 0)
+                          .count(); 
+
+            System.out.println(count);
+          }
+         }
+
+         Output:- 
+         2 
+
+      -map()
+        filter() removes elements.
+        map() transforms elements.
+
+        Example:
+        
+          ArrayList<Integer> list = new ArrayList<>();
+          
+          list.add(1);
+          list.add(2);
+          list.add(3);
+          
+          list.stream()
+              .map(num -> num * 10)
+              .forEach(System.out::println);
+          
+          Output:
+                10
+                20
+                30
+                
+          Step-by-Step
+           Original:
+                    1
+                    2
+                    3
+           Apply:
+                 num * 10
+                 
+                 Result:
+                        10
+                        20
+                        30
+           Then:
+               forEach()
+               prints them.
+
+          Interview Question
+          What is map()?
+          map() is used to transform or modify each element of a stream.
+
+          Example:
+                   1 → 10
+                   2 → 20
+                   3 → 30
+
+    4.Optional Class
+      Optional is a container object that may or may not contain a value. It helps avoid NullPointerException.
+                  
+       -Example:-
+         Optional<String> name = Optional.of("Java");
+         System.out.println(name.get());
+       -Output:-
+         Java
+
+       -Example:-
+         Optional<String> name = Optional.empty();
+         System.out.println(name.isPresent());
+       -Output:-
+         false
