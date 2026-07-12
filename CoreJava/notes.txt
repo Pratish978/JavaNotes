@@ -1395,3 +1395,523 @@
          System.out.println(name.isPresent());
        -Output:-
          false
+
+************************************************************************************************************************************************************
+
+16.File Handling 
+   Introduction:-
+    What is a File?
+    A file is used to store data permanently.
+
+    Without files:
+    int age = 21;
+
+    When program closes:
+    Data is lost 
+
+    With files:
+    Data is saved on computer.
+    Even after closing the program.
+
+    -File Class
+     Java provides:
+      import java.io.File;
+      Used to:
+              Create File
+              Check File Exists
+              Delete File
+              Get File Name
+
+      -Creating a file:-
+
+        import java.io.File;
+        import java.io.IOException;
+
+        public class Main {
+           public static void main(String[] args)
+              throws IOException {
+                File file = new File("Java.txt");
+                file.createNewFile();
+              System.out.println("File Created");
+           }
+        }
+
+        -Output:-
+                 File Created
+         And a file appears:
+                            Java.txt
+
+      -Understanding:-
+                     File file = new File("Java.txt");
+                     //Creates a File object.
+                     file.createNewFile();
+                     Creates the actual file.
+
+                     exists()
+                     Checks whether file exists.
+                     File file = new File("Java.txt");
+                     System.out.println(file.exists());
+                     Output:-
+                     true
+
+                     delete()
+                     Deletes file
+                     file.delete();
+                     File disappears.
+
+      -FileWriter (Writing Data into a File)
+       This is the most important File Handling topic.
+
+       -Example:-
+         import java.io.FileWriter;
+         import java.io.IOException;
+
+         public class Main {
+          public static void main(String[] args)
+                 throws IOException {
+                  FileWriter writer =new FileWriter("Student.txt");
+                  writer.write("Pratish");
+
+                  writer.close();
+                  System.out.println("Data Written");
+                 }
+         }
+
+         Output:Data Written
+         And inside Student.txt:
+         Pratish
+        
+        Understanding:-
+           FileWriter writer = new FileWriter("Student.txt");
+           Opens the file for writing.
+
+           Write Data
+           writer.write("Pratish");
+
+           Close File
+           writer.close();
+           Very important.
+           This saves the data properly.
+
+      -Append Mode
+        Suppose Java.txt contains:
+        Java
+        
+        Now we want:
+        Java
+        HTML
+        
+        instead of replacing Java.
+        For this we use:
+        FileWriter writer = new FileWriter("Java.txt", true);
+        
+        Notice:
+        true
+        
+        This enables Append Mode.
+
+      -FileReader
+          FileReader is used to read data from a file.
+
+       -Example:-
+                 import java.io.FileReader;
+                 import java.io.IOException;
+
+                 public class Main{
+                      public static void main(String[] args)
+                       throws IOException {
+                         FileReader reader =new FileReader("Java.txt");
+
+                        int data = reader.read();
+                        System.out.println((char)data);
+                        reader.close();
+                       }
+                 }
+
+                 Suppose Java.txt contains:
+                 Hello
+                 Output:
+                 H
+
+        -Understanding
+          Create FileReader
+           FileReader reader =new FileReader("Java.txt");
+
+          Read Data
+           int data = reader.read();
+           Reads one character.
+           For:Hello
+           it reads:H
+
+          Convert to Character
+           (char)data
+           because read() returns an ASCII/Unicode number.
+           Example:72
+           becomes:H
+
+
+
+      -BufferedReader
+          Used to read an entire line at once.
+          import java.io.BufferedReader;
+          import java.io.FileReader;
+
+          -Example:
+           import java.io.*;
+            public class Main {
+                public static void main(String[] args)
+               throws Exception {
+                  BufferedReader br = new BufferedReader(
+                    new FileReader("Java.txt")
+                 );
+
+                 String line = br.readLine();
+                 System.out.println(line);
+                  br.close();
+              }
+            }
+   
+           -Understanding
+            readLine()
+            String line = br.readLine();
+
+      -BufferedWriter
+       BufferedWriter writes data more efficiently than FileWriter.
+
+       mportant Method
+       newLine()
+       bw.write("Java");
+       bw.newLine();
+       bw.write("HTML");
+       
+       File content:
+       Java
+       HTML
+       
+       Without:
+       bw.newLine();
+       
+       Output would be:
+       JavaHTML
+
+************************************************************************************************************************************************************
+
+17.Multithreading:-
+   1. What is a Process?
+      A process is a running program.
+      Examples:
+               Chrome
+               VS Code
+               WhatsApp
+               Spotify
+      Each running application is a process
+
+   2.What is thread
+     A thread is the smallest unit of execution inside a process.
+     Example:
+     Chrome Process
+   
+     Inside Chrome:
+     Tab 1
+     Tab 2
+     Download
+     Video Playing
+     These are threads
+  
+  3. Why Multithreading?
+
+Without Multithreading:
+
+Task 1
+Task 2
+Task 3
+
+execute one after another.
+
+With Multithreading:
+
+Task 1
+Task 2
+Task 3
+
+can execute simultaneously.
+
+4. Creating Thread using Thread Class
+class MyThread extends Thread {
+
+    public void run() {
+
+        System.out.println("Thread Running");
+
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        MyThread t1 = new MyThread();
+
+        t1.start();
+
+    }
+}
+
+Output:
+
+Thread Running
+
+5. What is run()?
+public void run()
+
+contains the task to be executed by the thread.
+
+Example:
+
+public void run() {
+
+    System.out.println("Hello");
+
+}
+
+6. What is start()?
+t1.start();
+
+creates a new thread and calls run() internally.
+
+Always use:
+
+start()
+
+not:
+
+run()
+
+7. Difference Between run() and start()
+
+run():
+
+t1.run();
+
+Output:
+
+Runs like a normal method.
+No new thread created.
+
+start():
+
+t1.start();
+
+Output:
+
+Creates a new thread.
+Runs concurrently.
+8. Multiple Threads Example
+class MyThread extends Thread {
+
+    public void run() {
+
+        for(int i=1;i<=5;i++) {
+
+            System.out.println(i);
+
+        }
+
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        MyThread t1 = new MyThread();
+
+        MyThread t2 = new MyThread();
+
+        t1.start();
+
+        t2.start();
+
+    }
+}
+
+Output order may vary.
+
+9. Runnable Interface
+
+Another way to create threads.
+
+class MyTask implements Runnable {
+
+    public void run() {
+
+        System.out.println("Runnable Running");
+
+    }
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        MyTask task = new MyTask();
+
+        Thread t1 = new Thread(task);
+
+        t1.start();
+
+    }
+}
+
+Output:
+
+Runnable Running
+10. Why Runnable?
+
+Java supports single inheritance.
+
+Bad:
+
+class A extends Thread
+
+Now A cannot extend another class.
+
+Runnable solves this problem.
+
+11. sleep()
+
+Pauses a thread.
+
+Thread.sleep(2000);
+
+Meaning:
+
+Pause for 2 seconds.
+
+Example:
+
+for(int i=1;i<=3;i++) {
+
+    System.out.println(i);
+
+    Thread.sleep(1000);
+
+}
+
+Output:
+
+1
+(wait)
+
+2
+(wait)
+
+3
+12. join()
+
+Makes one thread wait for another.
+
+t1.start();
+
+t1.join();
+
+System.out.println("Completed");
+
+Meaning:
+
+Wait until t1 finishes.
+
+Then print:
+
+Completed
+13. currentThread()
+
+Returns currently running thread.
+
+System.out.println(
+    Thread.currentThread().getName()
+);
+
+Output:
+
+main
+14. getName()
+
+Gets thread name.
+
+t1.getName();
+
+Example output:
+
+Thread-0
+15. setName()
+
+Changes thread name.
+
+t1.setName("Pratish");
+
+Now:
+
+t1.getName();
+
+returns:
+
+Pratish
+16. Race Condition
+
+Problem when multiple threads access same data.
+
+Example:
+
+balance = 1000
+
+Thread 1:
+
+Withdraw 500
+
+Thread 2:
+
+Withdraw 500
+
+Both execute together.
+
+Wrong result may occur.
+
+This is called:
+
+Race Condition
+17. Synchronization
+
+Used to prevent race conditions.
+
+synchronized
+
+allows only one thread at a time.
+
+18. Synchronization Example
+class Counter {
+
+    int count = 0;
+
+    synchronized void increment() {
+
+        count++;
+
+    }
+}
+
+Meaning:
+
+Only one thread can execute increment()
+at a time.
+19. Thread Life Cycle
+New
+↓
+
+Runnable
+↓
+
+Running
+↓
+
+Terminated
