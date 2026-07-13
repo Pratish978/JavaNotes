@@ -1,0 +1,143 @@
+1.What is data?
+  Data is Information
+  Example:-
+            Pratish
+            22
+            Mumbai
+  All of these are data
+
+********************************************************************************************************************************************
+
+2.What is Database?
+  A database is a place where data is stored in organized way.
+  Real-life Example:-
+                      Instagram stores users.
+                      WhatsApp stores messages.
+                      Amazon stores products.
+                      Uber stores drivers and rides.
+  All of this is stored in databases.
+  Think of a database as a giant digital notebook.
+
+********************************************************************************************************************************************
+
+3.What is DBMS?
+  Database Management System
+  A DBMS helps us:-
+                  Store data
+                  Read data
+                  Update data
+                  Delete data
+  Examples:-
+            MySQL
+            Oracle
+            PostgreSQL
+            SQL Server
+            MongoDB
+
+********************************************************************************************************************************************
+
+4.What is SQL
+  Structured Query Language
+  SQL is the language used to talk to a database.
+  -Example:-
+            show DATABASES;
+  -Meaning:-
+            Hey MySQL,
+            show me all databases
+  -Real Life Example
+   Imagine a college
+   -Students:-
+              Pratish
+              Amit
+    Instead of writing in a notebook, we store them in a database.
+
+   -Database:-
+              college
+   -Inside it:- 
+               Students
+    table.
+              
+********************************************************************************************************************************************
+5.What is table
+  A table stores data
+  -Example:-
+            | id | name    | age |
+            | -- | ------- | --- |
+            | 1  | Pratish | 22  |
+            | 2  | Rahul   | 21  |
+  This is called a table.
+
+********************************************************************************************************************************************
+
+6.What is Row
+  One Horizontal record
+  -Example:-
+   id	name	age
+   1	Pratish	22
+  This whole line is one row
+
+********************************************************************************************************************************************
+
+7.What is Column
+  Vertical fields.
+  Example:
+  | id | name | age |
+  Columns are:
+              id
+              name
+              age
+
+********************************************************************************************************************************************
+
+8.What is a Database in MySQL?
+  -When we wrote:
+   CREATE DATABASE studentdb;
+  -We told MySQL:
+   Create a database named studentdb
+  Think of it as creating a new folder.
+
+********************************************************************************************************************************************
+
+9.What is SHOW DATABASES?
+  SHOW DATABASES;
+  -Meaning:-
+            Show all databases available.
+
+********************************************************************************************************************************************
+
+10.What is USE?
+   -Command:
+           USE studentdb;
+   -Meaning:-
+             Start working inside studentdb.
+
+********************************************************************************************************************************************
+
+11.What is a Data Type?
+  Before creating a table, MySQL must know:
+  Will this column store numbers?
+  or
+  Will this column store text?
+
+  1-INT
+    Used to store integers.
+    Examples:
+            1
+            10
+            100
+    Column:
+          id INT
+    Meaning:
+           id stores numbers.
+
+  2.Varchar
+    Used to store text.
+    -Example:
+             Pratish
+             Raj
+             Amit
+    -Column:
+            name VARCHAR(50)
+
+    -Meaning:
+             store text up to 50 characters.
